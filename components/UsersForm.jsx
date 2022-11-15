@@ -58,10 +58,10 @@ const UsersForm = ({ getUsers, userSelected, unselect, modalUpdate, setModalUpda
         </div>
         <div className="inputContainer">
           <div className="input-pass">
-            <input placeholder='Password' type={password ? "password" : "text"} {...register("password")} id="password" />
+            <input placeholder='Password' type={password ? "text" : "password"} {...register("password")} id="password" />
           </div>
           <div className="icon-pass">
-            {password ? <i onClick={() => setPassword(!password)} className="fa-solid fa-eye input-icon"></i> : <i onClick={() => setPassword(!password)} className="fa-solid fa-eye-slash input-icon"></i>}
+            {password ? <i onClick={() => setPassword(!password)} className="fa-solid fa-eye-slash input-icon"></i> : <i onClick={() => setPassword(!password)} className="fa-solid fa-eye input-icon"></i>}
           </div>
         </div>
         <div className="bdContainer">
