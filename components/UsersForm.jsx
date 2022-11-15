@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form"
 
-const UsersForm = ({ getUsers, userSelected, unselect }) => {
+const UsersForm = ({ getUsers, userSelected, unselect, modalUpdate, setModalUpdate, modalAdd, setModalAdd, password, setPassword }) => {
 
   const initialValues = {
     email: "",
@@ -28,6 +28,7 @@ const UsersForm = ({ getUsers, userSelected, unselect }) => {
         .then(() => {
           getUsers()
           unselect()
+          setModalUpdate(!modalUpdate);
         })
         .catch(error => console.log(error.response.data));
     } else {
@@ -36,36 +37,43 @@ const UsersForm = ({ getUsers, userSelected, unselect }) => {
           getUsers()
           unselect() //?????????????????????????
           reset(initialValues) //?????????????????????????
+          setModalAdd(!modalAdd);
+
         })
         .catch(error => console.log(error.response.data));
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <div className="inputContainer">
-        <label htmlFor="firstName">First Name</label>
-        <input type="text" {...register("first_name")} id="firstName" />
+    < form onSubmit={handleSubmit(submit)} >
+      <div className="complete-form">
+        <div className="inputContainer">
+          <input placeholder="First Name" type="text" {...register("first_name")} />
+        </div>
+        <div className="inputContainer">
+          <input placeholder='Last Name' type="text" {...register("last_name")} />
+        </div>
+        <div className="inputContainer">
+          <input placeholder="Email Address" type="email" {...register("email")} />
+        </div>
+        <div className="inputContainer">
+          <div className="input-pass">
+            <input placeholder='Password' type={password ? "password" : "text"} {...register("password")} id="password" />
+          </div>
+          <div className="icon-pass">
+            {password ? <i onClick={() => setPassword(!password)} className="fa-solid fa-eye input-icon"></i> : <i onClick={() => setPassword(!password)} className="fa-solid fa-eye-slash input-icon"></i>}
+          </div>
+        </div>
+        <div className="bdContainer">
+          <label htmlFor="birthdate">Birthdate</label>
+          <input type="date" {...register("birthday")} id="birthdate" />
+        </div>
+        <div className="form-buttons">
+          <button>Submit</button>
+          {userSelected && <button type="button" onClick={() => unselect()}>Cancel</button>}
+        </div>
       </div>
-      <div className="inputContainer">
-        <label htmlFor="lastName">Last Name</label>
-        <input type="text" {...register("last_name")} id="lastName" />
-      </div>
-      <div className="inputContainer">
-        <label htmlFor="email">Email</label>
-        <input type="email" {...register("email")} id="email" />
-      </div>
-      <div className="inputContainer">
-        <label htmlFor="password">Password</label>
-        <input type="text" {...register("password")} id="password" />
-      </div>
-      <div className="inputContainer">
-        <label htmlFor="birthdate">Birthdate</label>
-        <input type="date" {...register("birthday")} id="birthdate" />
-      </div>
-      <button>Submit</button>
-      {userSelected && <button type="button" onClick={() => unselect()}>Cancel</button>}
-    </form>
+    </form >
   );
 };
 

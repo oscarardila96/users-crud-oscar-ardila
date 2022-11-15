@@ -1,0 +1,287 @@
+:root {
+  --darkSienna: #2e0014;
+  --olive: #B0CA87;
+  --wine: #442220;
+  --green: #809848;
+  --celadon: #B5DEAD;
+  --background: #130008;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: content-box;
+}
+
+html {
+  box-sizing: inherit;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 18px;
+  color: var(--celadon);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: var(--olive);
+}
+
+.all {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  background-color: var(--olive);
+}
+
+@media (max-width: 480px) {
+  .all {
+    flex-direction: column;
+  }
+}
+
+.form-container {
+  width: 30%;
+  top: 10px;
+  left: 10px;
+  position: sticky;
+  height: 50vh;
+  margin-top: 30px;
+  background-color: var(--darkSienna);
+  color: var(--celadon);
+  border-radius: 15px;
+}
+
+@media (max-width: 650px) {
+  .form-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 90%;
+  }
+}
+
+.form-container button {
+  margin-top: 10px
+}
+
+.user-container {
+  width: 60%;
+  height: 100%;
+  margin-top: 30px;
+}
+
+@media (max-width: 650px) {
+  .user-container {
+    width: 50%;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-container {
+    width: 90%;
+  }
+}
+
+.user-container ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+@media (max-width: 950px) {
+  .user-container ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .user-container ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.user-container li {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: var(--wine);
+  font-weight: 600;
+  text-align: center;
+  transform: scale(1);
+  transition: transform 200ms ease-in;
+}
+
+.user-container li:hover {
+  transform: scale(1.02);
+}
+
+.user-info h3 {
+  margin: 5px 0;
+  color: var(--green);
+}
+
+.user-info {
+  position: relative;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+.form-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.user-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.complete-form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.bdContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-pass {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 75%;
+}
+
+.input-pass input {
+  width: 80%;
+}
+
+.icon-pass {
+  width: 10%;
+}
+
+h1 {
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--darkSienna)
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  border-radius: 10px;
+  margin-bottom: 5px;
+  width: 60%;
+  text-align: center;
+}
+
+button {
+  align-self: center;
+  border-radius: 15px;
+  background-color: var(--green);
+  width: 30%;
+  height: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 5px;
+  transform: scale(1);
+  transition: transform 200ms ease-in;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 30px 0;
+  color: var(--darkSienna);
+}
+
+.allModals {
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  top: 250px;
+  left: 600px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  opacity: 0.95;
+  text-align: center;
+  border-radius: 20px;
+  padding: 15px;
+  border: 2px solid black;
+}
+
+.modal h2 {
+  margin: 8px;
+}
+
+.fa-registered {
+  font-size: 12px;
+}
