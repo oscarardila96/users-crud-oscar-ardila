@@ -73,6 +73,7 @@ body {
 @media (max-width: 480px) {
   .form-container {
     width: 90%;
+    position: relative;
   }
 }
 
@@ -96,6 +97,7 @@ body {
 @media (max-width: 480px) {
   .user-container {
     width: 90%;
+    margin: auto;
   }
 }
 
