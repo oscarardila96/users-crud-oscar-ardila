@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   const getUsers = () => {
-    axios.get("https://users-crud1.herokuapp.com/users/")
+    axios.get("https://users-crud.academlo.tech/users/")
       .then(res => setUsersList(res.data));
   }
 
@@ -28,7 +28,7 @@ function App() {
   }
 
   const deleteUser = (id) => {
-    axios.delete(`https://users-crud1.herokuapp.com/users/${id}/`)
+    axios.delete(`https://users-crud.academlo.tech/users/${id}/`)
       .then(() => getUsers());
   }
 
